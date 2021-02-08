@@ -19,21 +19,13 @@ const {useState, useEffect} = React;
           {posts.map((item, index) => (
                   <div className="post-containers" id={"post-container-" + index}  key={index}>
                      <h2> {item.title ? item.title.rendered : ''}</h2>
-                      <p>{item.excerpt ? item.excerpt.rendered : ''}</p>
+                      <p>{item.excerpt ? item.content.rendered.replace(/<\/p>/g, '').replace(/<p>/g, '') : ''}</p>
                      {console.log(item)}
                   </div>
           ))}
-
-
-
-
-
-
       </div>
         )
     }
-
-
 
     
     ReactDOM.render(<NewComponent />, document.getElementById('app-container'));
